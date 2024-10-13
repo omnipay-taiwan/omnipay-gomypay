@@ -6,11 +6,6 @@ use Omnipay\Common\Exception\InvalidRequestException;
 use Omnipay\Gomypay\PaymentMethod;
 use Omnipay\Gomypay\Traits\HasGomypay;
 
-/**
- * Authorize Request
- *
- * @method PurchaseResponse send()
- */
 class PurchaseRequest extends AbstractRequest
 {
     use HasGomypay;

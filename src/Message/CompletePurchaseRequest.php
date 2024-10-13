@@ -6,7 +6,7 @@ use Omnipay\Common\Exception\InvalidRequestException;
 use Omnipay\Common\Exception\InvalidResponseException;
 use Omnipay\Gomypay\Traits\HasGomypay;
 
-class GetPaymentInfoRequest extends AbstractRequest
+class CompletePurchaseRequest extends AbstractRequest
 {
     use HasGomypay;
 
@@ -24,9 +24,9 @@ class GetPaymentInfoRequest extends AbstractRequest
         $data = array_merge($data, ['Amount' => (int) $this->getAmount()]);
 
         if (! hash_equals($this->makeHash($data), $data['str_check'])) {
-            throw new InvalidResponseException('Invalid check');
+            throw new InvalidResponseException('Invalid hash');
         }
 
-        return $this->response = new GetPaymentInfoResponse($this, $data);
+        return $this->response = new CompletePurchaseResponse($this, $data);
     }
 }

@@ -44,4 +44,25 @@ trait HasGomypay
     {
         return $this->setStrCheck($value);
     }
+
+    public function makeHash(array $data)
+    {
+        $amount = 0;
+        if (array_key_exists('PayAmount', $data)) {
+            $amount = $data['PayAmount'];
+        } elseif (array_key_exists('e_money', $data)) {
+            $amount = $data['e_money'];
+        } elseif (array_key_exists('Amount', $data)) {
+            $amount = $data['Amount'];
+        }
+
+        return md5(implode('', [
+            $data['result'],
+            $data['e_orderno'],
+            $this->getCustomerId(),
+            $amount,
+            $data['OrderID'],
+            $this->getStrCheck(),
+        ]));
+    }
 }

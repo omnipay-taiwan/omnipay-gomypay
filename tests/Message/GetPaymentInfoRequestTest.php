@@ -39,6 +39,7 @@ class GetPaymentInfoRequestTest extends TestCase
             'str_check' => 'bf577c7a76d440a797c1716aff9c01c9',
         ]);
         $this->request->setAmount('50');
+
         $response = $this->request->send();
 
         $this->assertFalse($response->isSuccessful());
@@ -61,6 +62,7 @@ class GetPaymentInfoRequestTest extends TestCase
             'str_check' => 'bf577c7a76d440a797c1716aff9c01c9',
         ]);
         $this->request->setAmount('50');
+
         $response = $this->request->send();
 
         $this->assertFalse($response->isSuccessful());
@@ -83,6 +85,7 @@ class GetPaymentInfoRequestTest extends TestCase
             'str_check' => 'bf577c7a76d440a797c1716aff9c01c9',
         ]);
         $this->request->setAmount('50');
+
         $response = $this->request->send();
 
         $this->assertFalse($response->isSuccessful());

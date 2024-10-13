@@ -4,9 +4,6 @@ namespace Omnipay\Gomypay\Message;
 
 use Omnipay\Common\Message\AbstractRequest as BaseAbstractRequest;
 
-/**
- * Abstract Request
- */
 abstract class AbstractRequest extends BaseAbstractRequest
 {
     protected $liveEndpoint = 'https://n.gomypay.asia/ShuntClass.aspx';
