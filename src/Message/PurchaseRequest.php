@@ -423,6 +423,7 @@ class PurchaseRequest extends AbstractRequest
     {
         $eReturn = $this->getEReturn();
         $strCheck = $eReturn ? $this->getStrCheck() : null;
+        $returnUrl = $this->getPaymentInfoUrl() ?: $this->getReturnUrl();
 
         return [
             'Send_Type' => PaymentMethod::CVS,
@@ -435,7 +436,7 @@ class PurchaseRequest extends AbstractRequest
             'Buyer_Telm' => $this->getBuyerTelm(),
             'Buyer_Mail' => $this->getBuyerMail(),
             'Buyer_Memo' => $this->getDescription(),
-            'Return_url' => $this->getReturnUrl(),
+            'Return_url' => $returnUrl,
             'Callback_Url' => $this->getCallbackUrl(),
             'e_return' => $eReturn,
             'Str_Check' => $strCheck,

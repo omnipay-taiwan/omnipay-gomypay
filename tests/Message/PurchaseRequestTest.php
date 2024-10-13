@@ -214,6 +214,7 @@ class PurchaseRequestTest extends TestCase
     public function testGetCvsData()
     {
         $this->request->setPaymentMethod(PaymentMethod::CVS);
+        $this->request->setPaymentInfoUrl('https://foo.bar/payment_info_url');
         $this->request->setStoreType(3);
 
         $response = $this->request->send();
@@ -235,7 +236,7 @@ class PurchaseRequestTest extends TestCase
             'Buyer_Telm' => '0912345678',
             'Buyer_Mail' => 'foo@bar.com',
             'Buyer_Memo' => 'good to drink',
-            'Return_url' => 'https://foo.bar/return_url',
+            'Return_url' => 'https://foo.bar/payment_info_url',
             'Callback_Url' => 'https://foo.bar/callback_url',
         ], $data);
     }
