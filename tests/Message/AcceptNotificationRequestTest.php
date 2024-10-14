@@ -78,7 +78,7 @@ class AcceptNotificationRequestTest extends TestCase
         $this->getHttpRequest()->request->replace([
             'Send_Type' => '2',
             'result' => '1',
-            'ret_msg' => '授權成功',
+            'ret_msg' => '已繳費',
             'OrderID' => '2020050700000000001',
             'e_money' => '100',
             'PayAmount' => '50',
@@ -90,7 +90,7 @@ class AcceptNotificationRequestTest extends TestCase
         ]);
 
         $this->assertEquals(NotificationInterface::STATUS_COMPLETED, $this->request->getTransactionStatus());
-        $this->assertEquals('授權成功', $this->request->getMessage());
+        $this->assertEquals('已繳費', $this->request->getMessage());
         $this->assertEquals('2020050701', $this->request->getTransactionId());
         $this->assertEquals('2020050700000000001', $this->request->getTransactionReference());
     }
@@ -100,7 +100,7 @@ class AcceptNotificationRequestTest extends TestCase
         $this->getHttpRequest()->request->replace([
             'Send_Type' => '4',
             'result' => '1',
-            'ret_msg' => '授權成功',
+            'ret_msg' => '已繳費',
             'OrderID' => '2020050700000000001',
             'e_money' => '100',
             'PayAmount' => '50',
@@ -113,7 +113,7 @@ class AcceptNotificationRequestTest extends TestCase
         ]);
 
         $this->assertEquals(NotificationInterface::STATUS_COMPLETED, $this->request->getTransactionStatus());
-        $this->assertEquals('授權成功', $this->request->getMessage());
+        $this->assertEquals('已繳費', $this->request->getMessage());
         $this->assertEquals('2020050701', $this->request->getTransactionId());
         $this->assertEquals('2020050700000000001', $this->request->getTransactionReference());
     }
@@ -123,7 +123,7 @@ class AcceptNotificationRequestTest extends TestCase
         $this->getHttpRequest()->request->replace([
             'Send_Type' => '3',
             'result' => '1',
-            'ret_msg' => '授權成功',
+            'ret_msg' => '已繳費',
             'OrderID' => '2020050700000000001',
             'e_money' => '100',
             'PayAmount' => '50',
@@ -136,7 +136,7 @@ class AcceptNotificationRequestTest extends TestCase
         ]);
 
         $this->assertEquals(NotificationInterface::STATUS_COMPLETED, $this->request->getTransactionStatus());
-        $this->assertEquals('授權成功', $this->request->getMessage());
+        $this->assertEquals('已繳費', $this->request->getMessage());
         $this->assertEquals('2020050701', $this->request->getTransactionId());
         $this->assertEquals('2020050700000000001', $this->request->getTransactionReference());
     }
@@ -147,7 +147,7 @@ class AcceptNotificationRequestTest extends TestCase
             'Send_Type' => '6',
             'StoreType' => '3',
             'result' => '1',
-            'ret_msg' => '授權成功',
+            'ret_msg' => '已繳費',
             'OrderID' => '2020050700000000001',
             'e_money' => '100',
             'PayAmount' => '50',
@@ -162,7 +162,7 @@ class AcceptNotificationRequestTest extends TestCase
         ]);
 
         $this->assertEquals(NotificationInterface::STATUS_COMPLETED, $this->request->getTransactionStatus());
-        $this->assertEquals('授權成功', $this->request->getMessage());
+        $this->assertEquals('已繳費', $this->request->getMessage());
         $this->assertEquals('2020050701', $this->request->getTransactionId());
         $this->assertEquals('2020050700000000001', $this->request->getTransactionReference());
     }

@@ -5,10 +5,12 @@ namespace Omnipay\Gomypay\Message;
 use Omnipay\Common\Exception\InvalidRequestException;
 use Omnipay\Gomypay\PaymentMethod;
 use Omnipay\Gomypay\Traits\HasGomypay;
+use Omnipay\Gomypay\Traits\HasOrderNo;
 
 class PurchaseRequest extends AbstractRequest
 {
     use HasGomypay;
+    use HasOrderNo;
 
     public function getSendType()
     {
@@ -34,20 +36,6 @@ class PurchaseRequest extends AbstractRequest
     public function setPayModeNo($value)
     {
         return $this->setParameter('Pay_Mode_No', $value);
-    }
-
-    public function getOrderNo()
-    {
-        return $this->getTransactionId();
-    }
-
-    /**
-     * 交易單號，如無則自動帶入系統預設交易單號
-     * 若使用系統預設交易畫面，交易單號不可為無
-     */
-    public function setOrderNo($value)
-    {
-        return $this->setTransactionId($value);
     }
 
     public function getAmount()

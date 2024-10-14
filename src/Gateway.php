@@ -5,6 +5,8 @@ namespace Omnipay\Gomypay;
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Gomypay\Message\AcceptNotificationRequest;
 use Omnipay\Gomypay\Message\CompletePurchaseRequest;
+use Omnipay\Gomypay\Message\FetchTransactionRequest;
+use Omnipay\Gomypay\Message\GetPaymentInfoRequest;
 use Omnipay\Gomypay\Message\PurchaseRequest;
 use Omnipay\Gomypay\Traits\HasGomypay;
 
@@ -42,6 +44,11 @@ class Gateway extends AbstractGateway
     public function acceptNotification(array $options = [])
     {
         return $this->createRequest(AcceptNotificationRequest::class, $options);
+    }
+
+    public function fetchTransaction(array $options = [])
+    {
+        return $this->createRequest(FetchTransactionRequest::class, $options);
     }
 
     public function getPaymentInfo(array $options = [])

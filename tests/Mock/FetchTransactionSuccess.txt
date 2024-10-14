@@ -1,0 +1,39 @@
+HTTP/1.1 200 OK
+Server: Apache
+Date: Sun, 11 May 2014 21:17:31 GMT
+Content-Type: application/json; charset=utf-8
+Status: 200 OK
+
+{
+  "result": "1",
+  "ret_msg": "已繳費",
+  "OrderID": "2019012300000000569",
+  "e_Cur": "NT",
+  "e_money": "10000",
+  "PayAmount": "10000",
+  "e_date": "20190123",
+  "e_time": "18:37:59",
+  "p_date": "20190123",
+  "p_time": "18:42:17",
+  "e_orderno": "AH15482399052114",
+  "e_no": "42816104A05",
+  "e_outlay": "26",
+  "bankname": "",
+  "avcode": "",
+  "Buyer_Name": "User",
+  "Buyer_Mail": "paymoney159@gmail.com",
+  "Buyer_Telm": "0900000000",
+  "Buyer_Memo": "此為商城虛擬商品購買，並非實體商品交易，請勿受騙上當，並請勿代他人繳款儲值，小心觸法",
+  "Creditcard_No": "",
+  "Installment": "0",
+  "Shop_PaymentCode": "1610A8259J3291",
+  "Virtual_Account": "",
+  "e_PayInfo": "",
+  "Send_Type": "6",
+  "Goods_Return": "0",
+  "Goods_Return_Statu": "",
+  "pay_result": "1",
+  "LimitDate": "20190123",
+  "Market_ID": "FM",
+  "Shop_Store_Name": "中壢興廣店（桃園市中壢區新中北路二段４８９號）"
+}

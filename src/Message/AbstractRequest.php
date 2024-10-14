@@ -6,12 +6,12 @@ use Omnipay\Common\Message\AbstractRequest as BaseAbstractRequest;
 
 abstract class AbstractRequest extends BaseAbstractRequest
 {
-    protected $liveEndpoint = 'https://n.gomypay.asia/ShuntClass.aspx';
+    protected $host = 'https://n.gomypay.asia/';
 
-    protected $testEndpoint = 'https://n.gomypay.asia/TestShuntClass.aspx';
-
-    public function getEndpoint()
+    public function getUrl($uri)
     {
-        return $this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
+        return $this->getTestMode()
+            ? $this->host.'Test'.$uri
+            : $this->host.$uri;
     }
 }

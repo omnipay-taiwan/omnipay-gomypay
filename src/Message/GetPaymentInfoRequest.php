@@ -24,7 +24,7 @@ class GetPaymentInfoRequest extends AbstractRequest
         $data = array_merge($data, ['Amount' => (int) $this->getAmount()]);
 
         if (! hash_equals($this->makeHash($data), $data['str_check'])) {
-            throw new InvalidResponseException('Invalid check');
+            throw new InvalidResponseException('Invalid hash');
         }
 
         return $this->response = new GetPaymentInfoResponse($this, $data);

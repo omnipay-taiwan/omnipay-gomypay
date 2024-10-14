@@ -18,9 +18,7 @@ class PurchaseResponse extends AbstractResponse implements RedirectResponseInter
 
     public function getRedirectUrl()
     {
-        return $this->request->getTestMode()
-            ? 'https://n.gomypay.asia/TestShuntClass.aspx'
-            : 'https://n.gomypay.asia/ShuntClass.aspx';
+        return $this->request->getUrl('ShuntClass.aspx');
     }
 
     public function getRedirectMethod()
