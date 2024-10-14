@@ -8,6 +8,7 @@ use Omnipay\Gomypay\Message\CompletePurchaseRequest;
 use Omnipay\Gomypay\Message\FetchTransactionRequest;
 use Omnipay\Gomypay\Message\GetPaymentInfoRequest;
 use Omnipay\Gomypay\Message\PurchaseRequest;
+use Omnipay\Gomypay\Message\VoidRequest;
 use Omnipay\Gomypay\Traits\HasGomypay;
 
 /**
@@ -49,6 +50,11 @@ class Gateway extends AbstractGateway
     public function fetchTransaction(array $options = [])
     {
         return $this->createRequest(FetchTransactionRequest::class, $options);
+    }
+
+    public function void(array $options = [])
+    {
+        return $this->createRequest(VoidRequest::class, $options);
     }
 
     public function getPaymentInfo(array $options = [])

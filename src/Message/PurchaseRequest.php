@@ -260,7 +260,7 @@ class PurchaseRequest extends AbstractRequest
             'CustomerId',
             'Buyer_Name',
             'Buyer_Telm',
-            'Buyer_Mail',
+            'Buyer_Mail'
         );
         $paymentMethod = (int) $this->getPaymentMethod();
 

@@ -24,7 +24,7 @@ class FetchTransactionRequest extends AbstractRequest
         $response = $this->httpClient->request(
             'POST',
             $this->getUrl('CallOrder.aspx'),
-            ['content-type' => 'application/json'],
+            ['content-type' => 'application/x-www-form-urlencoded'],
             http_build_query($data)
         );
         $data = json_decode((string) $response->getBody(), true);
