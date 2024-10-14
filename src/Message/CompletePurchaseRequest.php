@@ -21,7 +21,11 @@ class CompletePurchaseRequest extends AbstractRequest
      */
     public function sendData($data)
     {
-        $data = array_merge($data, ['Amount' => (int) $this->getAmount()]);
+        $data = array_merge(['Amount' => (int) $this->getAmount()], $data);
+
+        if (! array_key_exists('e_orderno', $data)) {
+            throw new InvalidResponseException($data['ret_msg']);
+        }
 
         if (! hash_equals($this->makeHash($data), $data['str_check'])) {
             throw new InvalidResponseException('Invalid hash');

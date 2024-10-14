@@ -414,7 +414,7 @@ class PurchaseRequest extends AbstractRequest
             'CustomerId' => $this->getCustomerId(),
             'Order_No' => $this->getOrderNo(),
             'Amount' => (int) $this->getAmount(),
-            'StoreType' => $this->getStoreType(),
+            'StoreType' => $this->getStoreType() ?: 3,
             'Buyer_Name' => $this->getBuyerName(),
             'Buyer_Telm' => $this->getBuyerTelm(),
             'Buyer_Mail' => $this->getBuyerMail(),

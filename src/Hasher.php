@@ -8,6 +8,7 @@ class Hasher
      * @var string
      */
     private $customerId;
+
     /**
      * @var string
      */

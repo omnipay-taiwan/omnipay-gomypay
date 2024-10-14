@@ -2,6 +2,7 @@
 
 namespace Omnipay\Gomypay\Tests\Message;
 
+use Omnipay\Common\Exception\InvalidResponseException;
 use Omnipay\Gomypay\Message\CompletePurchaseRequest;
 use Omnipay\Tests\TestCase;
 
@@ -66,5 +67,17 @@ class CompletePurchaseRequestTest extends TestCase
         $this->assertEquals('1', $response->getCode());
         $this->assertEquals('2020050701', $response->getTransactionId());
         $this->assertEquals('2020050700000000001', $response->getTransactionReference());
+    }
+
+    public function testInvalidResponse()
+    {
+        $this->expectException(InvalidResponseException::class);
+        $this->expectExceptionMessage('此特店未啟用信用卡交易功能');
+        $this->getHttpRequest()->query->replace([
+            'result' => '0',
+            'ret_msg' => '此特店未啟用信用卡交易功能',
+        ]);
+
+        $this->request->send();
     }
 }
