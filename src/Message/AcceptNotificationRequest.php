@@ -3,7 +3,6 @@
 namespace Omnipay\Gomypay\Message;
 
 use Omnipay\Common\Exception\InvalidRequestException;
-use Omnipay\Common\Exception\InvalidResponseException;
 use Omnipay\Common\Message\NotificationInterface;
 use Omnipay\Gomypay\Traits\HasGomypay;
 
@@ -18,14 +17,12 @@ class AcceptNotificationRequest extends AbstractRequest implements NotificationI
 
     /**
      * @throws InvalidRequestException
-     * @throws InvalidResponseException
      */
     public function sendData($data)
     {
         $data = array_merge(['Amount' => (int) $this->getAmount()], $data);
-
-        if (! hash_equals($this->makeHash($data), $data['str_check'])) {
-            throw new InvalidResponseException('Invalid hash');
+        if (! hash_equals($this->makeHash($data), $data['str_check'] ?: '')) {
+            throw new InvalidRequestException('Incorrect hash');
         }
 
         return $this->response = new AcceptNotificationResponse($this, $data);
