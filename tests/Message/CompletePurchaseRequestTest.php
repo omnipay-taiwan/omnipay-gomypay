@@ -2,7 +2,7 @@
 
 namespace Omnipay\Gomypay\Tests\Message;
 
-use Omnipay\Common\Exception\InvalidResponseException;
+use Omnipay\Common\Exception\InvalidRequestException;
 use Omnipay\Gomypay\Message\CompletePurchaseRequest;
 use Omnipay\Tests\TestCase;
 
@@ -71,7 +71,7 @@ class CompletePurchaseRequestTest extends TestCase
 
     public function testInvalidResponse()
     {
-        $this->expectException(InvalidResponseException::class);
+        $this->expectException(InvalidRequestException::class);
         $this->expectExceptionMessage('此特店未啟用信用卡交易功能');
         $this->getHttpRequest()->query->replace([
             'result' => '0',
